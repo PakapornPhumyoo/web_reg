@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>มหาวิทยาลัยแม่โจ้ - งานทะเบียนและสถิตินักศึกษา สำนักบริหารและพัฒนาวิชาการ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sarabun:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=TH+Sarabun+New:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'TH Sarabun New', 'Sarabun', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .font-prompt {
+            font-family: 'Prompt', serif;
+        }
+
+        .font-kanit {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .w-main-content {
+            max-width: 930px;
+            width: 100%;
+        }
+
+        .w-footer-max {
+            max-width: 1440px;
+            width: 100%;
+        }
+
+        /* สำหรับ Footer List ที่มีสัญลักษณ์นำหน้า */
+        .footer-list li {
+            position: relative;
+            padding-left: 1.25em;
+            /* ให้มีที่ว่างสำหรับสัญลักษณ์ */
+            /* Removed color: #d1d5db; to allow anchor tag color to apply */
+        }
+
+        .footer-list li::before {
+            content: '•';
+            /* สัญลักษณ์วงกลม */
+            color: #6CB345;
+            /* สีสัญลักษณ์ */
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .footer-list li.arrow::before {
+            content: '>';
+            /* สัญลักษณ์ลูกศร */
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="bg-green-100">
+
+    <nav class="bg-gray-100 py-2 md:py-3 shadow-md sticky top-0 z-10">
+        <div class="container mx-auto flex items-center justify-between px-4 md:px-6">
+            <div class="flex items-center">
+                <img src="images/mjulogo.png" alt="Mju Logo"
+                    class="w-16 h-16 rounded-full mb-2 float-left mr-4 object-cover">
+                <div>
+                    <p class="text-gray-800 font-semibold text-lg md:text-xl">มหาวิทยาลัยแม่โจ้</p>
+                    <p class="text-yellow-600 text-sm md:text-base">MAEJO UNIVERSITY</p>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
+                <a href="/index.html"
+                    class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">หน้าแรก</a>
+                <a href="/login_for_student.html"
+                    class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">เข้าสู่ระบบ</a>
+                <a href="#"
+                    class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">ตารางเรียนนักศึกษา</a>
+                <a href="/room.html"
+                    class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">ตารางการใช้ห้อง</a>
+                <a href="/calender.html"
+                    class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">ปฏิทินการศึกษา</a>
+            </div>
+
+            <div class="flex items-center">
+                <div class="hidden md:block">
+                    <a href="/login_for_teacher.html"
+                        class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
+                        เข้าสู่ระบบ (สำหรับอาจารย์)
+                    </a>
+                </div>
+                <div class="md:hidden ml-4">
+                    <button id="mobileMenuButton" class="text-gray-700 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-4 6h4"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="md:hidden hidden mt-2 px-4 pb-2 border-t border-gray-200">
+            <a href="/index.html" class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">หน้าแรก</a>
+            <a href="/login_for_student.html"
+                class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">เข้าสู่ระบบ</a>
+            <a href="/student_table.html"
+                class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base font-bold">ตารางเรียนนักศึกษา</a>
+            <a href="/room.html" class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">ตารางการใช้ห้อง</a>
+            <a href="/calender.html"
+                class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">ปฏิทินการศึกษา</a>
+            <a href="/login_for_teacher.html"
+                class="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md mt-2 focus:outline-none focus:shadow-outline">
+                เข้าสู่ระบบ (สำหรับอาจารย์)
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex flex-col items-center p-4 bg-green-50">
+        <div class="w-main-content mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-5">
+
+            <div class="w-full">
+                <img src="images/bannermju.png" alt="Maejo University Banner" class="w-full h-auto object-cover">
+            </div>
+            <div class="h-1 bg-yellow-500"></div>
+
+            <div class="p-5 bg-white">
+                <div class="space-y-4">
+                    <div class="bg-green-600 text-white py-3 px-4 font-bold text-lg">
+                        &nbsp;ประกาศเรื่อง
+                    </div>
+
+                    <div class="border border-gray-200 p-4 rounded-md bg-white">
+                        <div class="flex items-start mb-2 flex-wrap">
+                            <div class="w-full text-left text-gray-600 font-bold mb-2 md:w-8 md:text-center md:mb-0">
+                                1.</div>
+                            <div class="flex-grow w-full md:w-auto">
+                                <h3 class="text-blue-900 font-bold text-lg inline-block mr-2">รักษาสภาพ/ลาพัก</h3>
+                                <span class="text-red-600 font-bold">(ด่วนที่สุด)</span>
+                                <span class="ml-3 text-gray-600">Share to</span>
+                                <a href="http://www.facebook.com/share.php?u=http://www.education.mju.ac.th/news.aspx?webmsgid=78647"
+                                    target="_blank" class="ml-1">
+                                    <img src="images/fb.png" alt="Facebook" class="w-4 h-4 inline-block">
+                                </a>
+                                <div class="text-center mt-3">
+                                    <a href="https://erp.mju.ac.th/openFile.aspx?id=NzE4OTA5&method=inline"
+                                        target="_blank">
+                                        <img width="600"
+                                            src="https://erp.mju.ac.th/openFile.aspx?id=NzE4OTA5&method=inline"
+                                            alt="Announcement Image" class="mx-auto block">
+                                    </a>
+                                </div>
+                                <div
+                                    class="bg-gray-50 p-2 text-sm text-red-800 mt-3 flex justify-between items-center flex-wrap">
+                                    <span class="w-full md:w-auto mb-1 md:mb-0">ประกาศโดย&nbsp;&nbsp;&nbsp;-</span>
+                                    <span class="w-full md:w-auto">วันที่ประกาศ&nbsp;&nbsp;&nbsp;26 มิถุนายน 2568</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 p-4 rounded-md bg-white">
+                        <div class="flex items-start mb-2 flex-wrap">
+                            <div class="w-full text-left text-gray-600 font-bold mb-2 md:w-8 md:text-center md:mb-0">
+                                2.</div>
+                            <div class="flex-grow w-full md:w-auto">
+                                <h3 class="text-blue-900 font-bold text-lg inline-block mr-2">NEW MSG</h3>
+                                <span class="text-red-600 font-bold">(ด่วนที่สุด)</span>
+                                <span class="ml-3 text-gray-600">Share to</span>
+                                <a href="http://www.facebook.com/share.php?u=http://www.education.mju.ac.th/news.aspx?webmsgid=78146"
+                                    target="_blank" class="ml-1">
+                                    <img src="images/fb.png" alt="Facebook" class="w-4 h-4 inline-block">
+                                </a>
+                                <div class="text-center mt-3">
+                                    <img width="600" src="https://erp.mju.ac.th/openFile.aspx?id=NjkyMjYx&method=inline"
+                                        alt="Announcement Image" class="mx-auto block">
+                                </div>
+                                <div
+                                    class="bg-gray-50 p-2 text-sm text-red-800 mt-3 flex justify-between items-center flex-wrap">
+                                    <span class="w-full md:w-auto mb-1 md:mb-0">ประกาศโดย&nbsp;&nbsp;&nbsp;-</span>
+                                    <span class="w-full md:w-auto">วันที่ประกาศ&nbsp;&nbsp;&nbsp;4 มีนาคม 2568</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 p-4 rounded-md bg-white">
+                        <div class="flex items-start mb-2 flex-wrap">
+                            <div class="w-full text-left text-gray-600 font-bold mb-2 md:w-8 md:text-center md:mb-0">
+                                3.</div>
+                            <div class="flex-grow w-full md:w-auto">
+                                <h3 class="text-blue-900 font-bold text-lg inline-block mr-2">MS Teams</h3>
+                                <span class="text-red-600 font-bold">(ด่วนที่สุด)</span>
+                                <span class="ml-3 text-gray-600">Share to</span>
+                                <a href="http://www.facebook.com/share.php?u=http://www.education.mju.ac.th/news.aspx?webmsgid=78186"
+                                    target="_blank" class="ml-1">
+                                    <img src="images/fb.png" alt="Facebook" class="w-4 h-4 inline-block">
+                                </a>
+                                <div class="text-center mt-3">
+                                    <a href="https://maejo.link/Fa1L" target="_blank">
+                                        <img width="600"
+                                            src="https://erp.mju.ac.th/openFile.aspx?id=NjkyMzk4&method=inline"
+                                            alt="Announcement Image" class="mx-auto block">
+                                    </a>
+                                </div>
+                                <div
+                                    class="bg-gray-50 p-2 text-sm text-red-800 mt-3 flex justify-between items-center flex-wrap">
+                                    <span class="w-full md:w-auto mb-1 md:mb-0">ประกาศโดย&nbsp;&nbsp;&nbsp;-</span>
+                                    <span class="w-full md:w-auto">วันที่ประกาศ&nbsp;&nbsp;&nbsp;8 เมษายน 2568</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-gray-800">
+        <div class="bg-white py-10">
+            <div class="max-w-[95%] mx-auto px-2 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-semibold text-lg text-gray-900">
+                        สำนักงานบริหารและ
+                        <span class="text-green-700">พัฒนาวิชาการ</span>
+                    </h3>
+                    <p class="text-sm mt-2">63 อาคารจามจุรี ต.หนองหาร อ.สันทราย จ.เชียงใหม่ 50290</p>
+                    <ul class="mt-3 space-y-1 text-sm">
+                        <li>📞 053-873458 และ 053-873459 (งานทะเบียน)</li>
+                        <li>📞 053-873460 (งานรับสมัครนักศึกษา ปวช)</li>
+                        <li>📞 053-873461 (งานรับสมัครนักศึกษา ป.โท-เอก)</li>
+                        <li>📞 053-873450 และ 053-873452 (บัณฑิตศึกษา)</li>
+                    </ul>
+                    <div class="mt-3 text-sm">🌐 แสดงภาษา <a href="#" class="underline text-blue-600">EN</a> | <a
+                            href="#" class="underline text-blue-600">TH</a></div>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-green-700 text-lg">ระบบสารสนเทศ</h3>
+                    <ul class="mt-3 text-sm space-y-1 footer-list">
+                        <li class="arrow"><a href="#" class="hover:underline text-gray-700">สำหรับนักศึกษา</a></li>
+                        <li class="arrow"><a href="#" class="hover:underline text-gray-700">สำหรับบุคลากร</a></li>
+                        <li class="arrow"><a href="#" class="hover:underline text-gray-700">สำหรับนักตรวจ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-green-700 text-lg">เว็บไซต์ที่เกี่ยวข้อง</h3>
+                    <ul class="mt-3 text-sm space-y-1 footer-list">
+                        <li class="arrow"><a href="#" class="hover:underline text-gray-700">REG.MJU.AC.TH</a></li>
+                        <li class="arrow"><a href="#"
+                                class="hover:underline text-gray-700">เว็บไซต์สำนักงานพัฒนาวิชาการ</a></li>
+                        <li class="arrow"><a href="#" class="hover:underline text-gray-700">เว็บไซต์สำนักวิชา</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-[#66BB69] text-white mt-0 pt-4 pb-6 px-4 text-xs">
+            <div class="max-w-[95%] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>© POWERED BY VISION NET, 1995 - 2010 | CONTACT STAFF</p>
+                <p>กลุ่มทะเบียนประมวลผล ผลิตบัณฑิต โทร. 053-873458</p>
+                <div class="flex items-center gap-4">
+                    <a href="#"
+                        class="border border-white px-3 py-1 rounded hover:bg-white hover:text-green-700 text-xs">TO TOP
+                        OF PAGE</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    });
+</script>
+
+</html>

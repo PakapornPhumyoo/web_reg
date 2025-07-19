@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>มหาวิทยาลัยแม่โจ้ - ปฏิทินการศึกษา</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sarabun:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=TH+Sarabun+New:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'TH Sarabun New', 'Sarabun', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .font-prompt {
+            font-family: 'Prompt', serif;
+        }
+
+        .font-kanit {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .w-main-content {
+            max-width: 930px;
+            width: 100%;
+        }
+
+        .w-footer-max {
+            max-width: 1440px;
+            width: 100%;
+        }
+
+        /* สำหรับ Footer List ที่มีสัญลักษณ์นำหน้า */
+        .footer-list li {
+            position: relative;
+            padding-left: 1.25em;
+            /* ให้มีที่ว่างสำหรับสัญลักษณ์ */
+            color: #d1d5db;
+            /* สีตัวอักษรเริ่มต้นใน footer list */
+        }
+
+        .footer-list li::before {
+            content: '•';
+            /* สัญลักษณ์วงกลม */
+            color: #6CB345;
+            /* สีสัญลักษณ์ */
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .footer-list li.arrow::before {
+            content: '>';
+            /* สัญลักษณ์ลูกศร */
+            font-weight: bold;
+        }
+
+        /* ****************************************************** */
+        /* CSS ใหม่สำหรับเส้นแบ่งคอลัมน์และการ Responsive Table */
+        /* ****************************************************** */
+        .min-w-full {
+            border-collapse: collapse;
+            /* ทำให้เส้นขอบชนกันเป็นเส้นเดียว */
+            width: 100%;
+            /* ทำให้ตารางขยายเต็มความกว้าง */
+            table-layout: fixed;
+            /* ทำให้คอลัมน์ถูกบีบให้พอดีกับความกว้างของตาราง */
+        }
+
+        .min-w-full th,
+        .min-w-full td {
+            border-right: 1px solid #e5e7eb;
+            /* Light gray border */
+            padding-left: 1.5rem;
+            /* px-6 */
+            padding-right: 1.5rem;
+            /* px-6 */
+            padding-top: 0.75rem;
+            /* py-3 */
+            padding-bottom: 0.75rem;
+            /* py-3 */
+            font-size: 1rem;
+            /* text-base */
+            vertical-align: top;
+            /* จัดข้อความให้ชิดบน */
+            word-wrap: break-word;
+            /* ให้ข้อความยาวๆ ขึ้นบรรทัดใหม่ได้ */
+        }
+
+        /* ลบ border-right ออกจากเซลล์สุดท้ายในแต่ละแถว (th และ td) */
+        .min-w-full th:last-child,
+        .min-w-full td:last-child {
+            border-right: none;
+        }
+
+        .min-w-full thead {
+            border-bottom: 1px solid #e5e7eb;
+            /* Adds a bottom border to the whole thead */
+        }
+
+        /* Responsive adjustments for table cells */
+        @media (max-width: 767px) {
+
+            /* On small screens (mobile) */
+            .min-w-full th,
+            .min-w-full td {
+                font-size: 0.65rem;
+                /* ลดขนาดตัวอักษรให้เล็กลงมาก */
+                padding: 0.3rem 0.5rem;
+                /* ลด padding ลงอีก */
+            }
+
+            /* Adjust column widths more aggressively for mobile */
+            .min-w-full th:first-child,
+            .min-w-full td:first-child {
+                width: 40%;
+                /* เพิ่มพื้นที่ให้คอลัมน์รายการ */
+            }
+
+            .min-w-full th:nth-child(2),
+            .min-w-full td:nth-child(2) {
+                width: 30%;
+                /* แบ่งพื้นที่ให้วันเริ่มต้น */
+            }
+
+            .min-w-full th:last-child,
+            .min-w-full td:last-child {
+                width: 30%;
+                /* แบ่งพื้นที่ให้วันสุดท้าย */
+            }
+
+            .min-w-full td.px-6.py-3.text-lg {
+                /* สำหรับเซลล์หัวข้อใหญ่ เช่น "ลงทะเบียนปกติ" */
+                font-size: 0.9rem;
+                /* ลดขนาดลงเล็กน้อย */
+                padding: 0.5rem 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-green-100">
+
+    <nav class="bg-gray-100 py-2 md:py-3 shadow-md sticky top-0 z-10">
+        <div class="container mx-auto flex items-center justify-between px-4 md:px-6">
+            <div class="flex items-center">
+                <img src="images/mjulogo.png" alt="Mju Logo"
+                    class="w-16 h-16 rounded-full mb-2 float-left mr-4 object-cover">
+                <div>
+                    <p class="text-gray-800 font-semibold text-lg md:text-xl">มหาวิทยาลัยแม่โจ้</p>
+                    <p class="text-yellow-600 text-sm md:text-base">MAEJO UNIVERSITY</p>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
+                <a href="/index.html"
+                    class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">หน้าแรก</a>
+                <a href="/login_for_student.html"
+                    class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">เข้าสู่ระบบ</a>
+                <a href="#"
+                    class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">ตารางเรียนนักศึกษา</a>
+                <a href="/room.html"
+                    class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">ตารางการใช้ห้อง</a>
+                <a href="/calender.html"
+                    class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">ปฏิทินการศึกษา</a>
+            </div>
+
+            <div class="flex items-center">
+                <div class="hidden md:block">
+                    <a href="/login_for_teacher.html"
+                        class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
+                        เข้าสู่ระบบ (สำหรับอาจารย์)
+                    </a>
+                </div>
+                <div class="md:hidden ml-4">
+                    <button id="mobileMenuButton" class="text-gray-700 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-4 6h4"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobileMenu" class="md:hidden hidden mt-2 px-4 pb-2 border-t border-gray-200">
+                    <a href="/index.html" class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">หน้าแรก</a>
+                    <a href="/login_for_student.html"
+                        class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">เข้าสู่ระบบ</a>
+                    <a href="/student_table.html"
+                        class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base font-bold">ตารางเรียนนักศึกษา</a>
+                    <a href="/room.html"
+                        class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">ตารางการใช้ห้อง</a>
+                    <a href="/calender.html"
+                        class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">ปฏิทินการศึกษา</a>
+                    <a href="/login_for_teacher.html"
+                        class="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md mt-2 focus:outline-none focus:shadow-outline">
+                        เข้าสู่ระบบ (สำหรับอาจารย์)
+                    </a>
+                </div>
+            </div>
+
+            <div id="mobileMenu" class="md:hidden hidden mt-2 px-4 pb-2 border-t border-gray-200">
+                <a href="/index.html" class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">หน้าแรก</a>
+                <a href="/login_for_student.html"
+                    class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">เข้าสู่ระบบ</a>
+                <a href="/student_table.html"
+                    class="block py-2 text-green-700 hover:bg-gray-100 px-2 text-base font-bold">ตารางเรียนนักศึกษา</a>
+                <a href="/room.html"
+                    class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">ตารางการใช้ห้อง</a>
+                <a href="/calender.html"
+                    class="block py-2 text-gray-700 hover:bg-gray-100 px-2 text-base">ปฏิทินการศึกษา</a>
+                <a href="/login_for_teacher.html"
+                    class="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md mt-2 focus:outline-none focus:shadow-outline">
+                    เข้าสู่ระบบ (สำหรับอาจารย์)
+                </a>
+            </div>
+    </nav>
+
+    <main class="flex-grow flex flex-col items-center p-4 bg-green-50">
+        <div class="w-main-content mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-5">
+            <div class="w-full">
+                <img src="/images/bannermju.png" alt="Maejo University Banner" class="w-full h-auto object-cover">
+            </div>
+            <div class="h-1 bg-yellow-500"></div>
+
+            <div class="w-full p-6">
+                <h1 class="text-3xl font-bold text-center text-green-800 mb-6">ปฏิทินการศึกษา</h1>
+
+                <div class="flex flex-wrap items-center space-x-4 mb-6">
+                    <label for="studentGroup" class="text-gray-700">กลุ่มผู้เรียน</label>
+                    <select id="studentGroup"
+                        class="border border-gray-300 rounded-md p-2 focus:ring-green-500 focus:border-green-500">
+                        <option>1000 : วิทยาลัยบริหารศาสตร์</option>
+                        <option selected>1001 : ปริญญาตรี ปกติ</option>
+                        <option>1002 : ปริญญาตรี สมทบ </option>
+                        <option>1003 : ปริญญาตรี ภาคปกติ วิทยาเขตฯ</option>
+                        <option>1006 : นักศึกษาทดลองเรียน บัณฑิตศึกษา</option>
+                        <option>2001 : บัณฑิตศึกษา ปกติ</option>
+                        <option>2002 : บัณฑิตศึกษา สมทบ</option>
+                        <option>3001 : ปริญญาเอก ปกติ</option>
+                        <option>3002 : ปริญญาเอก สมทบ</option>
+                        <option>7001 : แม่โจ้ - ชุมพร </option>
+                        <option>8001 : แม่โจ้ - แพร่ </option>
+                        <option>9999 : TEST</option>
+                    </select>
+
+                    <label for="academicYear" class="text-gray-700">ปีการศึกษา</label>
+                    <select id="academicYear"
+                        class="border border-gray-300 rounded-md p-2 focus:ring-green-500 focus:border-green-500">
+                        <option selected>2568 / 1</option>
+                        <option>2568 / 2</option>
+                    </select>
+                </div>
+
+                <div class="shadow-md rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-green-700 text-white">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-center text-base font-medium uppercase tracking-wider">
+                                    รายการ
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-center text-base font-medium uppercase tracking-wider">
+                                    วันเริ่มต้น
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-center text-base font-medium uppercase tracking-wider">
+                                    วันสุดท้าย
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    ลงทะเบียนปกติ (on-line)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ชั้นปี 1 (ตามรหัสเข้า)</td>
+                                <td class="px-6 py-3 text-gray-700">18 มิ.ย. 2568 0.01 น.</td>
+                                <td class="px-6 py-3 text-gray-700">18 มิ.ย. 2568 23.59 น.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ชั้นปี 2 (ตามรหัสเข้า)</td>
+                                <td class="px-6 py-3 text-gray-700">19 มิ.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">19 มิ.ย. 2568 23.59 น.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ชั้นปี 3 (ตามรหัสเข้า)</td>
+                                <td class="px-6 py-3 text-gray-700">20 มิ.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">20 มิ.ย. 2568 23.59 น.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ชั้นปี 4 (ตามรหัสเข้า)</td>
+                                <td class="px-6 py-3 text-gray-700">20 มิ.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">20 มิ.ย. 2568 23.59 น.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ชั้นปีอื่นๆ</td>
+                                <td class="px-6 py-3 text-gray-700">20 มิ.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">20 มิ.ย. 2568 23.59 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    วันเปิดภาคการศึกษา
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- วันเปิดภาคการศึกษา</td>
+                                <td class="px-6 py-3 text-gray-700">23 มิ.ย. 2568 8.00 น.</td>
+                                <td class="px-6 py-3 text-gray-700">23 มิ.ย. 2568 8.00 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    ลงทะเบียนเพิ่ม/ถอน/เปลี่ยนกลุ่ม (on-line)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ช่วงพักการพิจารณา</td>
+                                <td class="px-6 py-3 text-gray-700">23 มิ.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">25 มิ.ย. 2568 23.59 น.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ช่วงวันทำการลดรายวิชา</td>
+                                <td class="px-6 py-3 text-gray-700">23 มิ.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">25 มิ.ย. 2568 23.59 น.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ช่วงวันทำการเปลี่ยนกลุ่ม/ลดรายวิชา</td>
+                                <td class="px-6 py-3 text-gray-700">23 มิ.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">25 มิ.ย. 2568 23.59 น.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ช่วงลดรายวาโดยได้รับค่าหน่วยกิตคืนเต็ม</td>
+                                <td class="px-6 py-3 text-gray-700">15 มิ.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">25 มิ.ย. 2568 23.59 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    ลงทะเบียนล่าช้า
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ช่วงการขอเทียบโอนหน่วยกิตนักศึกษาใหม่</td>
+                                <td class="px-6 py-3 text-gray-700">17 มิ.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">25 มิ.ย. 2568 23.59 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    งวดชำระเงินตามปกติ
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">-
+                                    ชำระเงินที่เคาน์เตอร์ธนาคารกรุงไทยทุกสาขาทั่วประเทศ</td>
+                                <td class="px-6 py-3 text-gray-700">30 มิ.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">6 ก.ค. 2568 16.30 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    ช่วงพิมพ์ใบแจ้งหนี้ผ่าน WEB
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- วันแจ้งคาดว่าจะสำเร็จการศึกษาผ่านระบบออนไลน์</td>
+                                <td class="px-6 py-3 text-gray-700">14 ก.ค. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">14 ต.ค. 2568 20.00 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    ช่วงของการรักษาสภาพนักศึกษานักศึกษา/ลาพักการเรียน
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- วันสุดท้ายของการแก้ไขผลการศึกษา</td>
+                                <td class="px-6 py-3 text-gray-700">23 ก.ค. 2568 16.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">23 ก.ค. 2568 16.30 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    ช่วงวันสอบกลางภาค
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ช่วงสอบกลางภาค</td>
+                                <td class="px-6 py-3 text-gray-700">18 ส.ค. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">24 ส.ค. 2568 16.30 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    ช่วงวันทำการสอบรายวิชา (ติด W)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ช่วงวันทำการสอบรายวิชา (ติด W)</td>
+                                <td class="px-6 py-3 text-gray-700">7 ก.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">9 ก.ย. 2568 16.00 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    วันสุดท้ายของการเรียนการสอน
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- วันสุดท้ายของการเรียนการสอน</td>
+                                <td class="px-6 py-3 text-gray-700">12 ต.ค. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">12 ต.ค. 2568 16.30 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    ช่วงวันสอบปลายภาค
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- ช่วงวันสอบปลายภาค</td>
+                                <td class="px-6 py-3 text-gray-700">14 ต.ค. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">27 ต.ค. 2568 16.30 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    วันปิดภาคการศึกษา
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- วันปิดภาคการศึกษา</td>
+                                <td class="px-6 py-3 text-gray-700">28 ต.ค. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">28 ต.ค. 2568 16.30 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    วันสุดท้ายของการส่งผลการศึกษา
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- วันสุดท้ายของการส่งผลการศึกษา</td>
+                                <td class="px-6 py-3 text-gray-700">6 พ.ย. 2568 8.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">6 พ.ย. 2568 16.30 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    วันประกาศผลการศึกษา
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- วันประกาศผลการศึกษา</td>
+                                <td class="px-6 py-3 text-gray-700">7 พ.ย. 2568 16.30 น.</td>
+                                <td class="px-6 py-3 text-gray-700">7 พ.ย. 2568 16.30 น.</td>
+                            </tr>
+
+                            <tr class="bg-gray-100">
+                                <td colspan="3" class="px-6 py-3 text-lg font-semibold text-green-800">
+                                    วันไหว้ครู
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 text-gray-800">- วันไหว้ครู</td>
+                                <td class="px-6 py-3 text-gray-700">24 ก.ค. 2568 8.00 น.</td>
+                                <td class="px-6 py-3 text-gray-700">24 ก.ค. 2568 16.30 น.</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-gray-800">
+        <div class="bg-white py-10">
+            <div class="max-w-[95%] mx-auto px-2 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-semibold text-lg text-gray-900">
+                        สำนักงานบริหารและ
+                        <span class="text-green-700">พัฒนาวิชาการ</span>
+                    </h3>
+                    <p class="text-sm mt-2">63 อาคารจามจุรี ต.หนองหาร อ.สันทราย จ.เชียงใหม่ 50290</p>
+                    <ul class="mt-3 space-y-1 text-sm">
+                        <li>📞 053-873458 และ 053-873459 (งานทะเบียน)</li>
+                        <li>📞 053-873460 (งานรับสมัครนักศึกษา ปวช)</li>
+                        <li>📞 053-873461 (งานรับสมัครนักศึกษา ป.โท-เอก)</li>
+                        <li>📞 053-873450 และ 053-873452 (บัณฑิตศึกษา)</li>
+                    </ul>
+                    <div class="mt-3 text-sm">🌐 แสดงภาษา <a href="#" class="underline text-blue-600">EN</a> | <a
+                            href="#" class="underline text-blue-600">TH</a></div>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-green-700 text-lg">ระบบสารสนเทศ</h3>
+                    <ul class="mt-3 text-sm space-y-1">
+                        <li><a href="#" class="hover:underline">› สำหรับนักศึกษา</a></li>
+                        <li><a href="#" class="hover:underline">› สำหรับบุคลากร</a></li>
+                        <li><a href="#" class="hover:underline">› สำหรับนักตรวจ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-green-700 text-lg">เว็บไซต์ที่เกี่ยวข้อง</h3>
+                    <ul class="mt-3 text-sm space-y-1">
+                        <li><a href="#" class="hover:underline">› REG.MJU.AC.TH</a></li>
+                        <li><a href="#" class="hover:underline">› เว็บไซต์สำนักงานพัฒนาวิชาการ</a></li>
+                        <li><a href="#" class="hover:underline">› เว็บไซต์สำนักวิชา</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-[#66BB69] text-white mt-0 pt-4 pb-6 px-4 text-xs">
+            <div class="max-w-[95%] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>© POWERED BY VISION NET, 1995 - 2010 | CONTACT STAFF</p>
+                <p>กลุ่มทะเบียนประมวลผล ผลิตบัณฑิต โทร. 053-873458</p>
+                <div class="flex items-center gap-4">
+                    <a href="#"
+                        class="border border-white px-3 py-1 rounded hover:bg-white hover:text-green-700 text-xs">TO TOP
+                        OF PAGE</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    });
+</script>
+</body>
+
+</html>

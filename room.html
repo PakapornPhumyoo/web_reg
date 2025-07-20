@@ -72,21 +72,15 @@
         .min-w-full th,
         .min-w-full td {
             border-right: 1px solid #e5e7eb;
-            /* Light gray border */
             padding-left: 1.5rem;
-            /* px-6 */
             padding-right: 1.5rem;
-            /* px-6 */
             padding-top: 0.75rem;
-            /* py-3 */
             padding-bottom: 0.75rem;
-            /* py-3 */
             font-size: 1rem;
-            /* text-base */
             vertical-align: top;
             /* จัดข้อความให้ชิดบน */
             word-wrap: break-word;
-            /* ให้ข้อความยาวๆ ขึ้นบรรทัดใหม่ได้ */
+
         }
 
         /* ลบ border-right ออกจากเซลล์สุดท้ายในแต่ละแถว (th และ td) */
@@ -102,14 +96,12 @@
         /* Responsive adjustments for table cells */
         @media (max-width: 767px) {
 
-            /* On small screens (mobile) */
             .min-w-full th,
             .min-w-full td {
                 font-size: 0.7rem;
                 padding: 0.4rem 0.6rem;
             }
 
-            /* Adjust column widths more aggressively for mobile */
             .min-w-full th:first-child,
             .min-w-full td:first-child {
                 width: 30%;
@@ -121,7 +113,6 @@
             }
 
             .min-w-full td.px-6.py-3.text-lg {
-                /* สำหรับเซลล์หัวข้อใหญ่ เช่น "ลงทะเบียนปกติ" */
                 font-size: 0.9rem;
                 padding: 0.5rem 0.75rem;
             }
@@ -147,7 +138,7 @@
                     class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">หน้าแรก</a>
                 <a href="/login_for_student.html"
                     class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">เข้าสู่ระบบ</a>
-                <a href="#"
+                <a href="/student_table.html"
                     class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">ตารางเรียนนักศึกษา</a>
                 <a href="/room.html"
                     class="text-gray-700 hover:text-green-700 font-medium text-base lg:text-lg">ตารางการใช้ห้อง</a>

@@ -64,9 +64,6 @@
             font-weight: bold;
         }
 
-        /* ****************************************************** */
-        /* CSS ใหม่สำหรับเส้นแบ่งคอลัมน์และการ Responsive Table */
-        /* ****************************************************** */
         .min-w-full {
             border-collapse: collapse;
             /* ทำให้เส้นขอบชนกันเป็นเส้นเดียว */
@@ -79,17 +76,17 @@
         .min-w-full th,
         .min-w-full td {
             border-right: 1px solid #e5e7eb;
-            /* Light gray border */
+
             padding-left: 1.5rem;
-            /* px-6 */
+
             padding-right: 1.5rem;
-            /* px-6 */
+
             padding-top: 0.75rem;
-            /* py-3 */
+
             padding-bottom: 0.75rem;
-            /* py-3 */
+
             font-size: 1rem;
-            /* text-base */
+
             vertical-align: top;
             /* จัดข้อความให้ชิดบน */
             word-wrap: break-word;
@@ -104,13 +101,13 @@
 
         .min-w-full thead {
             border-bottom: 1px solid #e5e7eb;
-            /* Adds a bottom border to the whole thead */
+
         }
 
-        /* Responsive adjustments for table cells */
+
         @media (max-width: 767px) {
 
-            /* On small screens (mobile) */
+
             .min-w-full th,
             .min-w-full td {
                 font-size: 0.65rem;
@@ -119,29 +116,29 @@
                 /* ลด padding ลงอีก */
             }
 
-            /* Adjust column widths more aggressively for mobile */
+
             .min-w-full th:first-child,
             .min-w-full td:first-child {
                 width: 40%;
-                /* เพิ่มพื้นที่ให้คอลัมน์รายการ */
+
             }
 
             .min-w-full th:nth-child(2),
             .min-w-full td:nth-child(2) {
                 width: 30%;
-                /* แบ่งพื้นที่ให้วันเริ่มต้น */
+
             }
 
             .min-w-full th:last-child,
             .min-w-full td:last-child {
                 width: 30%;
-                /* แบ่งพื้นที่ให้วันสุดท้าย */
+
             }
 
             .min-w-full td.px-6.py-3.text-lg {
-                /* สำหรับเซลล์หัวข้อใหญ่ เช่น "ลงทะเบียนปกติ" */
+
                 font-size: 0.9rem;
-                /* ลดขนาดลงเล็กน้อย */
+
                 padding: 0.5rem 0.75rem;
             }
         }
